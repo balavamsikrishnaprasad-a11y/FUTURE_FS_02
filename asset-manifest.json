@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FUTURE_FS_02/static/css/main.5ef1d99b.css",
+    "main.js": "/FUTURE_FS_02/static/js/main.fed15241.js",
+    "static/js/453.af205ec6.chunk.js": "/FUTURE_FS_02/static/js/453.af205ec6.chunk.js",
+    "index.html": "/FUTURE_FS_02/index.html",
+    "main.5ef1d99b.css.map": "/FUTURE_FS_02/static/css/main.5ef1d99b.css.map",
+    "main.fed15241.js.map": "/FUTURE_FS_02/static/js/main.fed15241.js.map",
+    "453.af205ec6.chunk.js.map": "/FUTURE_FS_02/static/js/453.af205ec6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ef1d99b.css",
+    "static/js/main.fed15241.js"
+  ]
+}
