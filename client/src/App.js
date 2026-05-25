@@ -2,6 +2,7 @@ import { useState } from "react";
 import LeadForm from "./components/LeadForm";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
+import "./App.css";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -14,38 +15,48 @@ function App() {
     return <Login setIsLoggedIn={setIsLoggedIn} />;
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+  };
+
   return (
-  <div className="container">
+    <div className="App">
+      <div className="container">
+        {/* Header */}
+        <div className="header">
+          <div className="header-content">
+            <h1>🌊 Ocean CRM Dashboard</h1>
+            <p className="header-subtitle">Manage Your Leads Efficiently</p>
+          </div>
 
-    {/* Header */}
-    <div className="header">
-      <h1>Mini CRM System</h1>
+          <button
+            className="logout-btn"
+            onClick={handleLogout}
+            title="Sign out of your account"
+          >
+            🚪 Logout
+          </button>
+        </div>
 
-      <button
-        className="logout-btn"
-        onClick={() => {
-          localStorage.removeItem("isLoggedIn");
-          window.location.reload();
-        }}
-      >
-        Logout
-      </button>
+        {/* Add Lead Section */}
+        <div className="section">
+          <h2 style={{ marginTop: 0 }}>➕ Add New Lead</h2>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <LeadForm setRefresh={setRefresh} />
+          </div>
+        </div>
+
+        <hr />
+
+        {/* Dashboard Section */}
+        <div className="section">
+          <h2>📊 Leads Dashboard</h2>
+          <Dashboard refresh={refresh} />
+        </div>
+      </div>
     </div>
-
-    {/* Form */}
-    <div className="section" style={{ display: "flex", justifyContent: "center" }}>
-      <LeadForm setRefresh={setRefresh} />
-    </div>
-
-    <hr />
-
-    {/* Dashboard */}
-    <div className="section">
-      <Dashboard refresh={refresh} />
-    </div>
-
-  </div>
-);
+  );
 }
 
 export default App;

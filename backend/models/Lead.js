@@ -1,24 +1,12 @@
-const mongoose = require("mongoose");
-
-const leadSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  source: String,
-  status: {
-    type: String,
-    default: "new"
-  },
-  notes: String,
-  createdAt: {
-    type: Date,
-    default: Date.now
+// SQLite Lead Model
+class Lead {
+  constructor(data) {
+    this.name = data.name;
+    this.email = data.email;
+    this.source = data.source;
+    this.status = data.status || "new";
+    this.notes = data.notes || "";
   }
-});
+}
 
-module.exports = mongoose.model("Lead", leadSchema);
+module.exports = Lead;
